@@ -1,0 +1,83 @@
+$menuFont: Source Sans Pro, sans-serif;
+$menuBoxBgColor: #f9f9f9;
+$menuColor: #808080;
+$menuHamburgerColor: #c3512f;
+$menuEasing: cubic-bezier(.6, .05, .28, .91);
+
+.menu-slide__button {
+  padding-right: 15px;
+
+  div {
+    width: 35px;
+    height: 3px;
+    margin-bottom: 8px;
+    background-color: $menuHamburgerColor;
+    transition: transform 500ms $menuEasing, opacity 500ms, background-color 250ms;
+  }
+}
+
+.menu-slide__button.active {
+  left: 230px;
+  div {
+    background-color: $menuHamburgerColor;
+  }
+  .top {
+    transform: translateY(11px) rotate(-135deg);
+  }
+  .middle {
+    opacity: 0;
+    transform: rotate(135deg);
+  }
+  .bottom {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+}
+
+.menu-slide__box {
+  position: fixed;
+  z-index: 4;
+  overflow: auto;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  opacity: 0;
+  padding: 20px 0;
+  height: 100%;
+  background-color: $menuBoxBgColor;
+  transition: all 350ms $menuEasing;
+  border: solid lighten($menuColor, 30%);
+  border-width: 0 0 0 1px;
+
+  &.active {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.menu-slide__navigation {
+
+  .menu-slide__item {
+    &:first-child {
+      border-width: 1px 0;
+    }
+
+    border: solid lighten($menuColor, 30%);
+    border-width: 0 0 1px;
+  }
+
+  .menu-slide__link {
+    font-size: 18px;
+    font-family: $menuFont;
+    color: $menuColor;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    padding: 20px 0 20px 75px;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: darken( #ffffff, 5% );
+    }
+  }
+
+}

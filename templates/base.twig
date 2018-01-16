@@ -9,18 +9,31 @@
 	<body class="{{body_class}}" data-template="base.twig">
 		<header class="header" >
 			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+				<div class="header__container">
+					<h1 class="header__logo" role="banner">
+						<a class="header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
 					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'menu': menu['primary'].get_items} %}
-					</nav><!-- #nav -->
+
+					<div class="menu-slide__button" id="menuSlideButton">
+						<div class="top"></div>
+						<div class="middle"></div>
+						<div class="bottom"></div>
+					</div>
+					<div class="menu-slide__box" id="menuSlideBox">
+						<nav class="menu-slide__navigation" role="navigation">
+							{% include "menu-slide.twig" with {'menu': menu['primary'].get_items} %}
+						</nav>
+					</div>
+
+
 				</div>
 			{% endblock %}
 		</header>
 
 		<section id="content" role="main" class="content-wrapper">
+
+			<div style="width: 100%; height: 400px; background-color: pink;"></div>
+
 			{% if title %}<h1>{{title}}</h1>{% endif %}
 			<div class="wrapper {{sidebar_class}}">
 				{% block content %}
@@ -37,9 +50,9 @@
 		{% block footer %}
 			<footer id="footer">
 
-				<nav class="footer__nav" role="navigation">
+{#				<nav class="footer__nav" role="navigation">
 					{% include "menu.twig" with {'menu': menu['footer'].get_items} %}
-				</nav>
+				</nav>#}
 				{% include 'footer.twig' %}
 			</footer>
 			{{ function('wp_footer') }}

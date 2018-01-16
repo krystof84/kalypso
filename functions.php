@@ -38,28 +38,6 @@ function kalypso_add_to_context( $context ) {
 add_filter( 'timber/context', 'kalypso_add_to_context' );
 
 
-if ( ! function_exists( 'bstone_fonts_url' ) ) :
-    /**
-     * Register Google fonts.
-     */
-    function kalypso_fonts_url() {
-        $fonts_url = '';
-        $fonts     = array(
-            'Source+Sans+Pro:300,400,600,700',
-        );
-        $subsets   = 'latin,latin-ext';
-
-        if ( $fonts ) {
-            $fonts_url = add_query_arg( array(
-                'family' => implode( '|', $fonts ),
-                'subset' => $subsets,
-            ), 'https://fonts.googleapis.com/css?family=' );
-        }
-
-        return $fonts_url;
-    }
-endif;
-
 /**
  * Setup theme
  */
@@ -91,3 +69,51 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );
+
+
+/**
+ * Register Google fonts.
+ */
+if ( ! function_exists( 'kalypso_fonts_url' ) ) :
+    function kalypso_fonts_url() {
+        $fonts_url = '';
+        $fonts     = array(
+            'Source+Sans+Pro:300,400,600,700',
+        );
+        $subsets   = 'latin,latin-ext';
+
+        if ( $fonts ) {
+            $fonts_url = add_query_arg( array(
+                'family' => implode( '|', $fonts ),
+                'subset' => $subsets,
+            ), 'https://fonts.googleapis.com/css?family=' );
+        }
+
+        return $fonts_url;
+    }
+endif;
+
+/**
+ * Handles JavaScript detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ */
+function kalypso_javascript_detection() {
+    echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'kalypso_javascript_detection', 0 );
+
+
+/**
+ * Enqueues scripts and styles.
+ */
+function kalypso_scripts() {
+    // Add custom fonts, used in the main stylesheet.
+    wp_enqueue_style( 'kalypso-fonts', kalypso_fonts_url(), array(), null );
+
+    // Add main css file
+    wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
+
+    wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery' ), '0.1', true );
+}
+add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
