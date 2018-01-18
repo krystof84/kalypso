@@ -2,17 +2,7 @@
 
 {% block content %}
 
-    <div class="slider">
-        <div>
-            <img src="{{ slide1url }}" alt="">
-        </div>
-        <div>
-            <img src="{{ slide2url }}" alt="">
-        </div>
-        <div>
-            <img src="{{ slide3url }}" alt="">
-        </div>
-    </div>
+    {% include 'partial/slider.twig' %}
 
     <div class="content-wrapper">
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">

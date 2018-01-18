@@ -35,7 +35,7 @@ $menuEasing: cubic-bezier(.6, .05, .28, .91);
 
 .menu-slide__box {
   position: fixed;
-  z-index: 4;
+  z-index: 1001;
   overflow: auto;
   top: 0;
   right: -400px;
