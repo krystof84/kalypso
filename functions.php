@@ -115,7 +115,7 @@ function kalypso_scripts() {
     wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
 
     // Main script file
-    wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery' ), '0.1', true );
+    wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery' ), '0.2', true );
 
     // Slick Carousel script
     wp_enqueue_script( 'kalypso-slick-carousel', get_template_directory_uri() . '/src/js/slick.min.js', array( 'jquery' ), '1', true );
