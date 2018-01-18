@@ -114,6 +114,10 @@ function kalypso_scripts() {
     // Add main css file
     wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
 
+    // Main script file
     wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery' ), '0.1', true );
+
+    // Slick Carousel script
+    wp_enqueue_script( 'kalypso-slick-carousel', get_template_directory_uri() . '/src/js/slick.min.js', array( 'jquery' ), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
