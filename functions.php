@@ -66,6 +66,8 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
         ) );
 
         add_editor_style( array( 'build/styles/editor-style.css', kalypso_fonts_url() ) );
+
+        add_image_size( 'kalypso-full-slide-size', 1920, 540, true );
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );
@@ -121,3 +123,8 @@ function kalypso_scripts() {
     wp_enqueue_script( 'kalypso-slick-carousel', get_template_directory_uri() . '/src/js/slick.min.js', array( 'jquery' ), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
+
+/*
+ * Custom post
+ * */
+include 'includes/custom-posts.php';
