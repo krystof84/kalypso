@@ -4,7 +4,7 @@
         <div class="slider">
             {% for slide in slides  %}
 
-                <div><img src="{{ slide.thumbnail }}" alt=""></div>
+                <div><img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" alt=""></div>
 
             {% endfor %}
         </div>
