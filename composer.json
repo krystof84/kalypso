@@ -1,29 +1,28 @@
 {
-  "name": "upstatement/timber-starter-theme",
-  "description": "Starter theme to build a Timber theme",
-  "type":"wordpress-theme",
-  "minimum-stability" : "stable",
+  "name": "Kalypso",
+  "type": "project",
   "authors": [
-      {
-          "name": "jarednova",
-          "email": "jared@upstatement.com"
-      }
+    {
+      "name": "Krzysztof Czajka",
+      "email": "krzysztof@ninja.go"
+    }
   ],
   "repositories": [
     {
-      "type": "composer",
-      "url": "https://wpackagist.org"
+      "type": "git",
+      "url": "https://github.com/cmb2/cmb2"
     }
   ],
-  "extra": {
-  	"installer-paths": {
-      "../../plugins/{$name}/": [
-        "wpackagist-plugin/*",
-        "type:wordpress-plugin"
-      ]
-  	}
-	},
   "require": {
-	  "wpackagist-plugin/timber-library": "0.22.*"
+    "timber/timber": "^1.6",
+    "cmb2/cmb2": "^2.2.6"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": ["cmb2/cmb2"]
+    }
+  },
+  "autoload": {
+    "files": ["vendor/cmb2/init.php"]
   }
 }
