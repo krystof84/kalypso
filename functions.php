@@ -125,6 +125,12 @@ function kalypso_scripts() {
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
 
 /*
- * Custom post
+ * Custom posts
  * */
 include 'includes/custom-posts.php';
+
+
+/*
+ * Custom metaboxes
+ * */
+include 'includes/custom-metaboxes.php';

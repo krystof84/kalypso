@@ -4,7 +4,12 @@
         <div class="slider">
             {% for slide in slides  %}
 
-                <div><img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" alt=""></div>
+                <div>
+                    <img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" class="slider__image" alt="">
+                    <p class="slider__header"><a href="{{ slide.get_field('kalypso_url_for_slide_button') }}">{{ slide.title }}</a></p>
+                    <p class="slider__text">{{ slide.get_field('kalypso_text_under_slide_title') }}</p>
+                    <a href="{{ slide.get_field('kalypso_url_for_slide_button') }}" class="slider__button">{{ slide.get_field('kalypso_name_for_slide_button') }}</a>
+                </div>
 
             {% endfor %}
         </div>
