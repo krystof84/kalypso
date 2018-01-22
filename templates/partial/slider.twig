@@ -1,16 +1,27 @@
 {% block slider %}
 
-    <div class="slider-container">
-        <div class="slider">
+    <div class="slider">
+        <div class="slider__inner">
             {% for slide in slides  %}
-
                 <div>
                     <img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" class="slider__image" alt="">
-                    <p class="slider__header"><a href="{{ slide.get_field('kalypso_url_for_slide_button') }}">{{ slide.title }}</a></p>
-                    <p class="slider__text">{{ slide.get_field('kalypso_text_under_slide_title') }}</p>
-                    <a href="{{ slide.get_field('kalypso_url_for_slide_button') }}" class="slider__button">{{ slide.get_field('kalypso_name_for_slide_button') }}</a>
-                </div>
 
+                    <div class="slider__text-container">
+                        {% if( slide.get_field('kalypso_url_for_slide_button') ) %}
+                            <p class="slider__header"><a href="{{ slide.get_field('kalypso_url_for_slide_button') | e('esc_url') }}">{{ slide.title }}</a></p>
+                        {% else %}
+                            <p class="slider__header">{{ slide.title }}</p>
+                        {% endif %}
+
+                        {% if( slide.get_field('kalypso_text_under_slide_title') ) %}
+                            <p class="slider__text">{{ slide.get_field('kalypso_text_under_slide_title') }}</p>
+                        {% endif %}
+
+                        {% if( slide.get_field('kalypso_url_for_slide_button') and slide.get_field('kalypso_name_for_slide_button') ) %}
+                            <a href="{{ slide.get_field('kalypso_url_for_slide_button') | e('esc_url') }}" class="btn btn--slider"><i class="fa fa-angle-right" aria-hidden="true"></i> {{ slide.get_field('kalypso_name_for_slide_button') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
