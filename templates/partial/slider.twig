@@ -1,12 +1,13 @@
 {% block slider %}
 
-    <div class="slider">
-        <div class="slider__inner">
+    <div class="slider" id="home-page-slider">
+        {#<div id="slider__inner">#}
             {% for slide in slides  %}
                 <div>
-                    <img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" class="slider__image" alt="">
+                    <div class="slider__slide">
+                        <img src="{{ slide.thumbnail|resize('kalypso-full-slide-size') }}" class="slider__image" alt="">
 
-                    <div class="slider__text-container">
+                        <div class="slider__text-container">
                         {% if( slide.get_field('kalypso_url_for_slide_button') ) %}
                             <p class="slider__header"><a href="{{ slide.get_field('kalypso_url_for_slide_button') | e('esc_url') }}">{{ slide.title }}</a></p>
                         {% else %}
@@ -23,9 +24,10 @@
                             </a>
                         {% endif %}
                     </div>
+                    </div>
                 </div>
             {% endfor %}
-        </div>
+        {#</div>#}
     </div>
 
 {% endblock %}

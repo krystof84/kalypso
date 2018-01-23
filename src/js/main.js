@@ -34,7 +34,8 @@
 
 jQuery(document).ready(function($) {
 
-    $('.slider__inner').slick({
+    $('#home-page-slider').slick({
+        arrows: false,
         dots: false,
         infinite: true,
         speed: 500
