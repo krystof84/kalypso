@@ -27,6 +27,21 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+body {
+  color: #58585a;
+  font-size: 18px;
+  font-family: Source Sans Pro, sans-serif; }
+
+a {
+  text-decoration: none; }
+
+input, textarea, select, button {
+  font: inherit;
+  border-radius: 0; }
+
 .header__container {
   width: 960px;
   max-width: 100%;
@@ -40,7 +55,9 @@ table {
   padding-left: 15px; }
 
 .slick-slide {
-  position: relative; }
+  position: relative;
+  display: flex;
+  justify-content: center; }
 
 .slider {
   width: 100%; }
@@ -62,7 +79,8 @@ table {
     font-family: Source Sans Pro, sans-serif;
     text-transform: uppercase;
     font-weight: 400;
-    margin-bottom: 35px; }
+    margin-bottom: 35px;
+    color: #fff; }
     .slider__header a {
       color: #fff;
       text-decoration: none; }
@@ -72,6 +90,20 @@ table {
     font-weight: 300;
     color: #fff;
     letter-spacing: 2px; }
+
+.btn {
+  display: inline-block;
+  padding: 16px 30px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color ease .3s; }
+  .btn--slider {
+    background-color: #ef0e0e;
+    margin: 50px auto 0 auto;
+    text-transform: uppercase; }
+    .btn--slider:hover {
+      background-color: #f22424; }
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

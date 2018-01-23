@@ -18,7 +18,9 @@
                         {% endif %}
 
                         {% if( slide.get_field('kalypso_url_for_slide_button') and slide.get_field('kalypso_name_for_slide_button') ) %}
-                            <a href="{{ slide.get_field('kalypso_url_for_slide_button') | e('esc_url') }}" class="btn btn--slider"><i class="fa fa-angle-right" aria-hidden="true"></i> {{ slide.get_field('kalypso_name_for_slide_button') }}</a>
+                            <a href="{{ slide.get_field('kalypso_url_for_slide_button') | e('esc_url') }}" class="btn btn--slider">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i> {{ slide.get_field('kalypso_name_for_slide_button') }}
+                            </a>
                         {% endif %}
                     </div>
                 </div>

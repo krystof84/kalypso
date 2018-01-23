@@ -1,0 +1,18 @@
+*, *:before, *:after {
+  box-sizing: border-box
+}
+
+body {
+  color: #58585a;
+  font-size: 18px;
+  font-family: $font-main;
+}
+
+a {
+  text-decoration: none
+}
+
+input, textarea, select, button {
+  font: inherit;
+  border-radius: 0
+}
