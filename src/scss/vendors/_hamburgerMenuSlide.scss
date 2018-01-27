@@ -6,6 +6,7 @@ $menuEasing: cubic-bezier(.6, .05, .28, .91);
 
 .menu-slide__button {
   padding-right: 15px;
+  cursor: pointer;
 
   div {
     width: 35px;
@@ -16,7 +17,7 @@ $menuEasing: cubic-bezier(.6, .05, .28, .91);
   }
 }
 
-.menu-slide__button.active {
+/*.menu-slide__button.active {
   left: 230px;
   div {
     background-color: $menuHamburgerColor;
@@ -31,17 +32,43 @@ $menuEasing: cubic-bezier(.6, .05, .28, .91);
   .bottom {
     transform: translateY(-11px) rotate(-45deg);
   }
+}*/
+
+.menu-slide__box-container {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 9;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  transition: opacity ease .3s;
+
+  &.active {
+    opacity: 1;
+    right: 0;
+  }
 }
 
 .menu-slide__box {
-  position: fixed;
+  position: relative;
   z-index: 1001;
   overflow: auto;
   top: 0;
-  right: -400px;
-  width: 400px;
+  right: -430px;
+  width: 430px;
+  max-width: 100%;
   opacity: 0;
-  padding: 20px 0;
+  padding: 65px 0 0 0;
   height: 100%;
   background-color: $menuBoxBgColor;
   transition: all 350ms $menuEasing;
@@ -80,4 +107,39 @@ $menuEasing: cubic-bezier(.6, .05, .28, .91);
     }
   }
 
+}
+
+.menu-slide__btn-close {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0;
+  border: none;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  cursor: pointer;
+
+  &:before {
+    transform: rotateZ(45deg) translateY(1px);
+  }
+
+  &:after {
+    transform: rotateZ(-45deg);
+  }
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 35px;
+    height: 4px;
+    margin: auto;
+    border-radius: 2px;
+    background-color: red;
+    transition: width ease .3s, left ease .3s;
+  }
 }
