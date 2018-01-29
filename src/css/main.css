@@ -102,6 +102,10 @@ input, textarea, select, button {
     .btn--slider:hover {
       background-color: #f22424; }
 
+.slick-track, .slick-list {
+  -webkit-perspective: 2000;
+  -webkit-backface-visibility: hidden; }
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
