@@ -52,6 +52,14 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
 
         add_theme_support( 'post-thumbnails' );
 
+        add_theme_support( 'custom-logo', array(
+            'height'      => 40,
+            'width'       => 400,
+            'flex-height' => true,
+            'flex-width'  => true,
+            'header-text' => array( 'site-title', 'site-description' ),
+        ) );
+
         register_nav_menus( array(
             'primary' => __( 'Menu Główne', 'kalypso' ),
             'footer' => __( 'Menu w stopce', 'kalypso' ),
