@@ -54,7 +54,7 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
 
         add_theme_support( 'custom-logo', array(
             'height'      => 40,
-            'width'       => 400,
+            'width'       => 300,
             'flex-height' => true,
             'flex-width'  => true,
             'header-text' => array( 'site-title', 'site-description' ),
@@ -79,6 +79,32 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );
+
+/*
+ * Add SVG Support
+ * */
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+    global $wp_version;
+    if ( $wp_version !== '4.7.1' ) {
+        return $data;
+    }
+
+    $filetype = wp_check_filetype( $filename, $mimes );
+
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+
+}, 10, 4 );
+
+function cc_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
 /**
@@ -131,6 +157,25 @@ function kalypso_scripts() {
     wp_enqueue_script( 'kalypso-slick-carousel', get_template_directory_uri() . '/src/js/slick.min.js', array( 'jquery' ), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
+
+
+/*
+ * Add second logo field in WordPress Customizer -> Site identity - Homepage
+ * */
+
+function your_theme_customizer_setting($wp_customize) {
+    $wp_customize->add_setting('kalypso_logo_in_slide_menu');
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kalypso_logo_in_slide_menu', array(
+        'label' => __('Signet logo in menu slide', 'kalypso'),
+        'description' => __('Signet logo in slide menu should have 176px x 176px'),
+        'section' => 'title_tagline',
+        'settings' => 'kalypso_logo_in_slide_menu',
+        'priority' => 8
+    )));
+}
+add_action('customize_register', 'your_theme_customizer_setting');
+
 
 /*
  * Custom posts

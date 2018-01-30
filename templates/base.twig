@@ -26,6 +26,13 @@
 
 					<div class="menu-slide__box-container">
 						<div class="menu-slide__box" id="menuSlideBox">
+
+							{% if( function('get_theme_mod', 'kalypso_logo_in_slide_menu') ) %}
+								<div class="menu-slide__signet">
+									<img src="{{ function('get_theme_mod', 'kalypso_logo_in_slide_menu') }}" alt="">
+								</div>
+							{% endif %}
+
 							<nav class="menu-slide__navigation" role="navigation">
 								{% include "menu-slide.twig" with {'menu': menu['primary'].get_items} %}
 							</nav>

@@ -2548,6 +2548,19 @@ input, textarea, select, button {
     background-color: red;
     transition: width ease .3s, left ease .3s; }
 
+.menu-slide__signet {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 250px;
+  padding: 0 10px;
+  overflow: hidden; }
+  .menu-slide__signet img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    align-self: center; }
+
 /* Slider */
 .slick-slider {
   position: relative;
