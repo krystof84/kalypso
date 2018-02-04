@@ -121,6 +121,10 @@ input, textarea, select, button {
   align-items: center; }
 .footer__copyright {
   font-size: 14px; }
+.footer a {
+  color: #dddddd; }
+  .footer a:hover {
+    text-decoration: underline; }
 
 .footer__nav ul {
   display: flex;
@@ -149,7 +153,7 @@ input, textarea, select, button {
     padding: 40px 0; }
   .footer__up .footer__widget {
     width: 33.33%;
-    padding: 10px;
+    padding: 10px 20px;
     color: #dddddd;
     font-size: 16px;
     line-height: 20px; }
@@ -169,6 +173,12 @@ input, textarea, select, button {
 
   .footer__copyright {
     padding-bottom: 10px; } }
+@media (max-width: 767px) {
+  .footer__up .footer__widget {
+    width: 100%;
+    padding: 10px 30px; }
+  .footer__up .footer__container {
+    flex-direction: column; } }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

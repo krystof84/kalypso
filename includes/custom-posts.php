@@ -22,6 +22,7 @@ function kalypso_silde_post_init() {
         'description'        => __( 'Description.', 'kalypso' ),
         'public'             => false,
         'show_ui'            => true,
+        'menu_position'      => 5,
         'has_archive'        => false,
         'hierarchical'       => false,
         'supports'           => array( 'title', 'thumbnail', 'page-attributes' )
