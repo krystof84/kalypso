@@ -1,1 +1,32 @@
-Copyright {{"now"|date('Y')}}
+<footer id="footer" class="footer">
+
+
+    {% if( footerWidget1 != "" or footerWidget2 != "" or footerWidget3 != "" )  %}
+        <div class="footer__up">
+            <div class="footer__container">
+
+                {{ footerWidget1 }}
+
+                {{ footerWidget2 }}
+
+                {{ footerWidget3 }}
+
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="footer__bottom">
+        <div class="footer__container footer__container--bottom">
+            {% if( function('get_theme_mod', 'footer_text_block') != "" ) %}
+                <div class="footer__copyright">
+                    <p>{{ function('get_theme_mod', 'footer_text_block') }}</p>
+                </div>
+            {% endif %}
+
+            <nav class="footer__nav" role="navigation">
+                {% include "menu.twig" with {'menu': menu['footer'].get_items} %}
+            </nav>
+        </div>
+    </div>
+
+</footer>

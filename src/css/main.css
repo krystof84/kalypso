@@ -43,7 +43,7 @@ input, textarea, select, button {
   border-radius: 0; }
 
 .header__container {
-  width: 960px;
+  width: 1170px;
   max-width: 100%;
   height: 80px;
   margin-left: auto;
@@ -106,6 +106,69 @@ input, textarea, select, button {
   -webkit-perspective: 2000;
   -webkit-backface-visibility: hidden; }
 
+.footer__bottom {
+  background-color: #333333;
+  color: #eeeeee; }
+.footer__container {
+  width: 1170px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+.footer__container--bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center; }
+.footer__copyright {
+  font-size: 14px; }
+
+.footer__nav ul {
+  display: flex;
+  align-items: center; }
+  .footer__nav ul li {
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 1px solid #eeeeee; }
+    .footer__nav ul li:first-child {
+      padding-left: 0; }
+    .footer__nav ul li:last-child {
+      border: none;
+      padding-right: 0; }
+.footer__nav a {
+  color: #eeeeee;
+  font-size: 14px; }
+  .footer__nav a:hover {
+    text-decoration: underline;
+    color: #c8c8c8; }
+
+.footer__up {
+  background-color: #222222; }
+  .footer__up .footer__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0; }
+  .footer__up .footer__widget {
+    width: 33.33%;
+    padding: 10px;
+    color: #dddddd;
+    font-size: 16px;
+    line-height: 20px; }
+  .footer__up .footer__widget-title {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    color: #919191; }
+
+@media (max-width: 1200px) {
+  .footer__container {
+    padding: 0 20px; } }
+@media (max-width: 900px) {
+  .footer__container--bottom {
+    height: 80px;
+    flex-direction: column;
+    justify-content: center; }
+
+  .footer__copyright {
+    padding-bottom: 10px; } }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

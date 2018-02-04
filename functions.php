@@ -160,10 +160,15 @@ add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
 
 
 /*
- * Add second logo field in WordPress Customizer -> Site identity - Homepage
+ * WP Customizer Init
  * */
 
 function your_theme_customizer_setting($wp_customize) {
+
+    //
+    // Add second logo field in WordPress Customizer -> Site identity - Homepage
+    //
+
     $wp_customize->add_setting('kalypso_logo_in_slide_menu');
 
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kalypso_logo_in_slide_menu', array(
@@ -173,15 +178,103 @@ function your_theme_customizer_setting($wp_customize) {
         'settings' => 'kalypso_logo_in_slide_menu',
         'priority' => 8
     )));
+
+    //
+    // Add footer text in WP Customizer
+    //
+
+    // Create custom panel.
+    $wp_customize->add_panel( 'text_blocks', array(
+        'priority'       => 500,
+        'theme_supports' => '',
+        'title'          => __( 'Text Blocks', 'kalypso' ),
+        'description'    => __( 'Set editable text for certain content.', 'kalypso' ),
+    ) );
+    // Add Footer Text
+    // Add section.
+    $wp_customize->add_section( 'custom_footer_text' , array(
+        'title'    => __('Change Footer Text','kalypso'),
+        'panel'    => 'text_blocks',
+        'priority' => 10
+    ) );
+    // Add setting
+    $wp_customize->add_setting( 'footer_text_block', array(
+        'default'           => __( 'default text', 'kalypso' ),
+        'sanitize_callback' => 'sanitize_text'
+    ) );
+    // Add control
+    $wp_customize->add_control( new WP_Customize_Control(
+            $wp_customize,
+            'custom_footer_text',
+            array(
+                'label'    => __( 'Footer Text', 'kalypso' ),
+                'section'  => 'custom_footer_text',
+                'settings' => 'footer_text_block',
+                'type'     => 'text'
+            )
+        )
+    );
+    // Sanitize text
+    function sanitize_text( $text ) {
+        return sanitize_text_field( $text );
+    }
 }
 add_action('customize_register', 'your_theme_customizer_setting');
+
+
+/*
+ * Register Widgets
+ * */
+
+function kalypso_widgets_init() {
+
+    register_sidebar( array(
+        'name'          => 'Footer 1',
+        'id'            => 'kal-footer-widget-1',
+        'before_widget' => '<div class="footer__widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<p class="footer__widget-title">',
+        'after_title'   => '</p>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => 'Footer 2',
+        'id'            => 'kal-footer-widget-2',
+        'before_widget' => '<div class="footer__widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<p class="footer__widget-title">',
+        'after_title'   => '</p>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => 'Footer 3',
+        'id'            => 'kal-footer-widget-3',
+        'before_widget' => '<div class="footer__widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<p class="footer__widget-title">',
+        'after_title'   => '</p>',
+    ) );
+
+}
+add_action( 'widgets_init', 'kalypso_widgets_init' );
+
+/*
+ * Add Variables to global Timber Context
+ * */
+function add_to_context( $context ) {
+    $context['footerWidget1'] = Timber::get_widgets('kal-footer-widget-1');
+    $context['footerWidget2'] = Timber::get_widgets('kal-footer-widget-2');
+    $context['footerWidget3'] = Timber::get_widgets('kal-footer-widget-3');
+
+    return $context;
+}
+add_filter( 'timber/context', 'add_to_context' );
 
 
 /*
  * Custom posts
  * */
 include 'includes/custom-posts.php';
-
 
 /*
  * Custom metaboxes

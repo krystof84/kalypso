@@ -48,32 +48,23 @@
 			{% endblock %}
 		</header>
 
-		<section id="content" role="main" class="content-wrapper">
+		<section id="content" role="main" class="content-wrapper {{sidebar_class}}">
 
 			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
+			{#<div class="wrapper {{sidebar_class}}">#}
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
-			</div>
+			{#</div>#}
 			{% if sidebar %}
 				<aside class="layout-sidebar">
 					{{sidebar}}
 				</aside>
 			{% endif %}
+
 		</section>
 
-		<pre>{{ timberContext | print_r}}</pre>
-
-		{% block footer %}
-			<footer id="footer">
-
-{#				<nav class="footer__nav" role="navigation">
-					{% include "menu.twig" with {'menu': menu['footer'].get_items} %}
-				</nav>#}
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
+		{% include 'footer.twig' %}
+		{{ function('wp_footer') }}
 	</body>
 </html>

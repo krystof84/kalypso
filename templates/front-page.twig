@@ -4,14 +4,15 @@
 
     {% include 'partial/slider.twig' %}
 
-    <div class="content-wrapper">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+    <div class="content-wrapper" style="background-color: pink; height: 500px;">
+        {#<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
             <section class="article-content">
-                <h1 class="article-h1">{{post.title}}</h1>
+                <h1 class="article-h1">{{post.title}} ssdds</h1>
                 <div class="article-body">
                     {{post.content}}
                 </div>
             </section>
-        </article>
-    </div><!-- /content-wrapper -->
+        </article>#}
+    </div>
+
 {% endblock %}
