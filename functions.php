@@ -76,6 +76,7 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
         add_editor_style( array( 'build/styles/editor-style.css', kalypso_fonts_url() ) );
 
         add_image_size( 'kalypso-full-slide-size', 1920, 540, true );
+        add_image_size( 'kalypso-picture-section-size', 960, 641, true );
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );

@@ -4,15 +4,43 @@
 
     {% include 'partial/slider.twig' %}
 
-    <div class="content-wrapper" style="background-color: pink; height: 500px;">
-        {#<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content">
-                <h1 class="article-h1">{{post.title}} ssdds</h1>
-                <div class="article-body">
-                    {{post.content}}
+    <div class="content-wrapper">
+
+        {% if( pictureImageHeader1 and pictureImageDesc1 and pictureImageUrl1 ) %}
+            <section class="picture-section">
+                <div class="picture-section__content picture-section__content--right">
+                    <div class="picture-section__content-inner">
+                        <h2 class="picture-section__header">{{ pictureImageHeader1 }}</h2>
+                        <p class="picture-section__desc">{{ pictureImageDesc1 }}</p>
+
+                        {% if( pictureImageButtonUrl1 and pictureImageButtonName1 ) %}
+                            <a href="{{ pictureImageButtonUrl1 }}" class="btn btn--more">{{ pictureImageButtonName1 }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="picture-section__img-container">
+                    <img src="{{ pictureImageUrl1 }}" class="picture-section__img">
                 </div>
             </section>
-        </article>#}
+        {% endif %}
+
+        {% if( pictureImageHeader2 and pictureImageDesc2 and pictureImageUrl2 ) %}
+            <section class="picture-section">
+                <div class="picture-section__content">
+                    <div class="picture-section__content-inner">
+                        <h2 class="picture-section__header">{{ pictureImageHeader2 }}</h2>
+                        <p class="picture-section__desc">{{ pictureImageDesc2 }}</p>
+
+                        {% if( pictureImageButtonUrl2 and pictureImageButtonName2 ) %}
+                            <a href="{{ pictureImageButtonUrl2 }}" class="btn btn--more">{{ pictureImageButtonName2 }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="picture-section__img-container">
+                    <img src="{{ pictureImageUrl2 }}" class="picture-section__img">
+                </div>
+            </section>
+        {% endif %}
     </div>
 
 {% endblock %}

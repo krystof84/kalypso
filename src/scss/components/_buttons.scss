@@ -1,0 +1,23 @@
+.btn {
+  display: inline-block;
+  padding: 16px 30px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color ease .3s;
+  background-color: #ef0e0e;
+  margin: 0 auto 0 auto;
+
+
+  &:hover {
+    background-color: lighten(#ef0e0e, 5%);
+  }
+
+  &--slider {
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+
+
+
+}

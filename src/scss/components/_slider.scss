@@ -41,25 +41,6 @@
   }
 }
 
-.btn {
-  display: inline-block;
-  padding: 16px 30px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 18px;
-  transition: background-color ease .3s;
-
-  &--slider {
-    background-color: #ef0e0e;
-    margin: 50px auto 0 auto;
-    text-transform: uppercase;
-
-    &:hover {
-      background-color: lighten( #ef0e0e, 5% );
-    }
-  }
-}
-
 .slick-track, .slick-list {
   -webkit-perspective: 2000;
   -webkit-backface-visibility: hidden;
