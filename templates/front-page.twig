@@ -6,6 +6,8 @@
 
     <div class="content-wrapper">
 
+        {# Picture Sections #}
+
         {% if( pictureImageHeader1 and pictureImageDesc1 and pictureImageUrl1 ) %}
             <section class="picture-section">
                 <div class="picture-section__content picture-section__content--right">
@@ -41,6 +43,23 @@
                 </div>
             </section>
         {% endif %}
+
+        {# End Picture Sections #}
+
+        {# Logo Section #}
+        <section class="logo-section">
+            <div class="logo-section__container owl-carousel">
+                {% for logoId in logos|keys %}
+
+                    <div class="item">
+                        {{ function( 'wp_get_attachment_image', logoId, 'kalypso-logo-size' ) }}
+                    </div>
+
+                {% endfor %}
+            </div>
+        </section>
+        {# End Logo Section #}
+
     </div>
 
 {% endblock %}

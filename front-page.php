@@ -29,4 +29,6 @@ $context['pictureImageButtonName2'] = get_post_meta( get_the_ID(), 'kalypso_butt
 $context['pictureImageButtonUrl2'] = get_post_meta( get_the_ID(), 'kalypso_button_url_picture_section_2', true );
 $context['pictureImageUrl2'] = get_post_meta( get_the_ID(), 'kalypso_image_picture_section_2', true );
 
+$context['logos'] = get_post_meta( get_the_ID(), 'kalypso_logotype_home_section', true);
+
 Timber::render( 'front-page.twig', $context );

@@ -138,5 +138,36 @@ function cmb2_kalypso_metaboxes() {
         ),
     ) );
 
+    /*
+     * Logotypes Carausel
+     * */
+
+    $cmb = new_cmb2_box( array(
+        'id'            => 'logos_home_section_metabox',
+        'title'         => __( 'Logotype Section', 'cmb2' ),
+        'object_types'  => array( 'page' ),
+        'show_on'	  => array( 'id' => array( $front_page_ID, ) ),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'closed'     => false,
+    ) );
+
+    $cmb->add_field( array(
+        'name' => 'Logotypes',
+        'desc' => '',
+        'id'   => $prefix . 'logotype_home_section',
+        'type' => 'file_list',
+        'preview_size' => array( 160, 100 ),
+        'query_args' => array( 'type' => 'image' ),
+        'text' => array(
+            'add_upload_files_text' => 'Add or Upload Logos', // default: "Add or Upload Files"
+            'remove_image_text' => 'Remove logo', // default: "Remove Image"
+            'file_text' => 'File', // default: "File:"
+            'file_download_text' => 'Download', // default: "Download"
+            'remove_text' => 'Remove logo', // default: "Remove"
+        ),
+    ) );
+
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );

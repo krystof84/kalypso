@@ -77,6 +77,7 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
 
         add_image_size( 'kalypso-full-slide-size', 1920, 540, true );
         add_image_size( 'kalypso-picture-section-size', 960, 641, true );
+        add_image_size( 'kalypso-logo-size', 230, 114, true );
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );
@@ -152,10 +153,13 @@ function kalypso_scripts() {
     wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
 
     // Main script file
-    wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery' ), '0.2', true );
+    wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery', 'kalypso-slick-carousel', 'kalypso-owl-carousel' ), '0.2', true );
 
     // slick Carousel script
     wp_enqueue_script( 'kalypso-slick-carousel', get_template_directory_uri() . '/src/js/slick.min.js', array( 'jquery' ), '1', true );
+
+    // Owl Carousel script
+    wp_enqueue_script( 'kalypso-owl-carousel', get_template_directory_uri() . '/src/js/owl.carousel.min.js', array( 'jquery' ), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
 

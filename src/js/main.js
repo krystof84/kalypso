@@ -53,4 +53,36 @@ jQuery(document).ready(function($) {
         speed: 500
     });
 
+
+    /*
+    * Carousel logotypes
+    * */
+
+    $(".owl-carousel").owlCarousel({
+        items: 9,
+        margin: 5,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        lazyLoad: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:3,
+                slideBy: 3
+            },
+            620:{
+                items:4,
+                slideBy: 4
+            },
+            992:{
+                items:4,
+                slideBy: 1
+            },
+            1200: {
+                items: 5
+            }
+        }
+    });
 });
