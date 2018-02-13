@@ -47,17 +47,20 @@
         {# End Picture Sections #}
 
         {# Logo Section #}
-        <section class="logo-section">
-            <div class="logo-section__container owl-carousel">
-                {% for logoId in logos|keys %}
 
-                    <div class="item">
-                        {{ function( 'wp_get_attachment_image', logoId, 'kalypso-logo-size' ) }}
-                    </div>
+        {% if(logos) %}
+            <section class="logo-section">
+                <div class="logo-section__container owl-carousel">
+                    {% for logoId in logos|keys %}
 
-                {% endfor %}
-            </div>
-        </section>
+                        <div class="item">
+                            {{ function( 'wp_get_attachment_image', logoId, 'kalypso-logo-size' ) }}
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
         {# End Logo Section #}
 
     </div>
