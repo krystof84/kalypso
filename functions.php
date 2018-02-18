@@ -78,6 +78,7 @@ if ( ! function_exists( 'kalypso_setup' ) ) :
         add_image_size( 'kalypso-full-slide-size', 1920, 540, true );
         add_image_size( 'kalypso-picture-section-size', 960, 641, true );
         add_image_size( 'kalypso-logo-size', 230, 114, true );
+        add_image_size( 'kalypso-service-logo-size', 128, 128, true );
     }
 endif; // kalypso_setup
 add_action( 'after_setup_theme', 'kalypso_setup' );

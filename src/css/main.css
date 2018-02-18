@@ -243,6 +243,47 @@ input, textarea, select, button {
   margin-left: auto;
   margin-right: auto; }
 
+.services-section {
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 80px;
+  padding-bottom: 80px; }
+
+.services-section__container {
+  width: 1170px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  text-align: center; }
+  .services-section__container .service {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .services-section__container .attachment-kalypso-service-logo-size {
+    display: block;
+    margin: 0 auto 35px auto; }
+  .services-section__container .service__header {
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: 600; }
+  .services-section__container .service__desc {
+    line-height: 1.2; }
+  .services-section__container .service__link {
+    color: #58585a; }
+
+@media (max-width: 700px) {
+  .services-section {
+    padding: 40px 0; }
+
+  .services-section__container {
+    flex-direction: column; }
+    .services-section__container .service {
+      padding: 0 40px 40px 40px; } }
+.logo-section {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0; }
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

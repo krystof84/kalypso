@@ -17,6 +17,8 @@ $slidesArgs = array(
 
 $context['slides'] = Timber::get_posts( $slidesArgs );
 
+$context['services'] = get_post_meta( get_the_ID(), 'kalypso_service_section', true );
+
 $context['pictureImageHeader1'] = get_post_meta( get_the_ID(), 'kalypso_header_picture_section_1', true );
 $context['pictureImageDesc1'] = get_post_meta( get_the_ID(), 'kalypso_content_picture_section_1', true );
 $context['pictureImageButtonName1'] = get_post_meta( get_the_ID(), 'kalypso_button_name_picture_section_1', true );

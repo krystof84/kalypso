@@ -6,8 +6,25 @@
 
     <div class="content-wrapper">
 
-        {# Picture Sections #}
+        {# Services Section #}
+        {% if (services) %}
+            <section class="services-section">
+                <div class="services-section__container">
+                    {% for service in services %}
+                        <div class="service">
+                            <a href="{{ service.kalypso_service_url }}" class="service__link">
+                                {{ function( 'wp_get_attachment_image', service.kalypso_service_image_id, 'kalypso-service-logo-size' ) }}
+                                <p class="service__header">{{ service.kalypso_service_title }}</p>
+                                <p class="service__desc">{{ service.kalypso_service_description }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
+        {# End Services Secion #}
 
+        {# Picture Sections #}
         {% if( pictureImageHeader1 and pictureImageDesc1 and pictureImageUrl1 ) %}
             <section class="picture-section">
                 <div class="picture-section__content picture-section__content--right">
@@ -43,7 +60,6 @@
                 </div>
             </section>
         {% endif %}
-
         {# End Picture Sections #}
 
         {# Logo Section #}

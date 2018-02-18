@@ -85,3 +85,64 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+// Services section
+
+.services-section {
+  background-color: #f9f9f9;
+  border-top: 1px solid darken(#f9f9f9, 10);
+  border-bottom: 1px solid darken(#f9f9f9, 10);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.services-section__container {
+  width: 1170px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  text-align: center;
+
+  .service {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .attachment-kalypso-service-logo-size {
+    display: block;
+    margin: 0 auto 35px auto;
+  }
+
+  .service__header {
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .service__desc {
+    line-height: 1.2;
+  }
+
+  .service__link {
+    color: #58585a;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-section {
+    padding: 40px 0;
+  }
+  .services-section__container {
+    flex-direction: column;
+
+    .service {
+      padding: 0 40px 40px 40px;
+    }
+  }
+}
+
+.logo-section {
+  border-top: 1px solid darken(#f9f9f9, 10);
+  border-bottom: 1px solid darken(#f9f9f9, 10);
+}

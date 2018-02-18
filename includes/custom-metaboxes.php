@@ -54,6 +54,51 @@ function cmb2_kalypso_metaboxes() {
         // 'closed'     => true, // Keep the metabox closed by default
     ) );
 
+    /*
+ * Repeeatable service section
+ * */
+
+    $group_field_id = $cmb->add_field( array(
+        'id'          => $prefix . 'service_section',
+        'type'        => 'group',
+        'description' => 'Generates service section items',
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'   => __('Service {#}', 'cmb2'),
+            'add_button'    => __('Add Another Service', 'cmb2'),
+            'remove_button' => __('Remove Service', 'cmb2'),
+            'sortable'      => true,
+            // 'closed'     => true,
+        ),
+    ) );
+
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => __('Entry service name', 'cmb2'),
+        'id'   => $prefix . 'service_title',
+        'type' => 'text',
+    ) );
+
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => __('Description', 'cm2'),
+        'description' => 'Write a short description for this service',
+        'id'   => $prefix . 'service_description',
+        'type' => 'textarea_small',
+    ) );
+
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => __('Entry service image', 'cmb2'),
+        'id'   => $prefix . 'service_image',
+        'type' => 'file',
+        'query_args' => array( 'type' => 'image' ),
+    ) );
+
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => __('Service url', 'cmb2'),
+        'id'   => $prefix . 'service_url',
+        'type' => 'text_url',
+    ) );
+
+
     // Picture section 1
 
     $cmb->add_field( array(
@@ -161,11 +206,11 @@ function cmb2_kalypso_metaboxes() {
         'preview_size' => array( 160, 100 ),
         'query_args' => array( 'type' => 'image' ),
         'text' => array(
-            'add_upload_files_text' => 'Add or Upload Logos', // default: "Add or Upload Files"
-            'remove_image_text' => 'Remove logo', // default: "Remove Image"
-            'file_text' => 'File', // default: "File:"
-            'file_download_text' => 'Download', // default: "Download"
-            'remove_text' => 'Remove logo', // default: "Remove"
+            'add_upload_files_text' => __('Add or Upload Logos', 'cmb2'),
+            'remove_image_text' => __('Remove logo', 'cmb2'),
+            'file_text' => __('File', 'cmb2'),
+            'file_download_text' => __('Download', 'cmb2'),
+            'remove_text' => __('Remove logo', 'cmb2'),
         ),
     ) );
 
