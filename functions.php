@@ -153,6 +153,9 @@ function kalypso_scripts() {
     // Add main css file
     wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
 
+    // Font Awesome CDN
+    wp_enqueue_style( 'kalypso-font-awesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), null );
+
     // Main script file
     wp_enqueue_script( 'kalypso-script', get_template_directory_uri() . '/src/js/main.js', array( 'jquery', 'kalypso-slick-carousel', 'kalypso-owl-carousel' ), '0.2', true );
 

@@ -214,5 +214,78 @@ function cmb2_kalypso_metaboxes() {
         ),
     ) );
 
+    /*
+     * ABOUT US
+     * */
+
+    // Meet Team Section
+
+    $cmb = new_cmb2_box( array(
+        'id'           => $prefix . 'meet_team_section',
+        'title'        => 'Meet Team Section',
+        'object_types' => array( 'page' ),
+        'show_on'      => array( 'key' => 'page-template', 'value' => 'about-us.php' ),
+        'context'      => 'normal', //  'normal', 'advanced', or 'side'
+        'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+        'show_names'   => true, // Show field names on the left
+    ) );
+
+    $meet_team_section_id = $cmb->add_field( array(
+        'id'          => 'meet_team_section_repeat_group',
+        'type'        => 'group',
+        'options'     => array(
+            'group_title'   => __( 'Person {#}', 'cmb2' ),
+            'add_button'    => __( 'Add Another Person', 'cmb2' ),
+            'remove_button' => __( 'Remove Person', 'cmb2' ),
+            'sortable'      => true,
+            // 'closed'     => true, // true to have the groups closed by default
+        ),
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name' => __('Image', 'cmb2'),
+        'description' => __('Required field', 'cmb2'),
+        'id'   => $prefix . 'image_meet_team_person',
+        'type' => 'file',
+        'preview_size' => array( 100, 160 ),
+        'query_args' => array( 'type' => 'image' ),
+        'text' => array(
+            'add_upload_files_text' => 'Add or Upload image',
+            'remove_image_text' => 'Remove Image',
+        ),
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name'       => __( 'Name', 'cmb2' ),
+        'description' => __('Required field', 'cmb2'),
+        'id'         => $prefix . 'name_meet_team_person',
+        'type'       => 'text'
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name'       => __( 'Position', 'cmb2' ),
+        'id'         => $prefix . 'position_meet_team_person',
+        'type'       => 'text'
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name'       => __( 'Description', 'cmb2' ),
+        'description' => __('Required field', 'cmb2'),
+        'id'         => $prefix . 'desc_meet_team_person',
+        'type'       => 'text_medium'
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name' => __( 'Facebook url', 'cmb2' ),
+        'id'   => $prefix . 'url_facebook_meet_team_person',
+        'type' => 'text_url'
+    ) );
+
+    $cmb->add_group_field( $meet_team_section_id, array(
+        'name' => __( 'Linkedin url', 'cmb2' ),
+        'id'   => $prefix . 'linkedin_facebook_meet_team_person',
+        'type' => 'text_url'
+    ) );
+
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );

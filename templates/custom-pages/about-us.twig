@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {# Maet team section #}
+
+{#    <pre>
+        {{ meetTeamPerson|print_r }}
+    </pre>#}
+
+    {% if(meetTeamPerson) %}
+        <section class="meet-team">
+            <div class="meet-team-container">
+
+                {% for person in meetTeamPerson %}
+                    {% if( person.kalypso_image_meet_team_person and person.kalypso_name_meet_team_person and person.kalypso_desc_meet_team_person ) %}
+                        <div class="meet-team-person">
+                            <div class="meet-team-person__img-container">
+
+                                <img src="{{ person.kalypso_image_meet_team_person }}" class="meet-team-person-image">
+
+                                <div class="meet-team-person__social">
+                                    {% if(person.kalypso_url_facebook_meet_team_person) %}
+                                        <a href="{{ person.kalypso_url_facebook_meet_team_person }}" class="meet-team-person__fb {% if(person.kalypso_linkedin_facebook_meet_team_person == '') %} meet-team-person__fb-single {% endif %}">
+                                            <i class="fab fa-facebook-square fa-lg"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {% if(person.kalypso_linkedin_facebook_meet_team_person) %}
+                                        <a href="{{ person.kalypso_linkedin_facebook_meet_team_person }}" class="meet-team-person__linkedin {% if(person.kalypso_url_facebook_meet_team_person == '') %} meet-team-person__linkedin-single {% endif %}">
+                                            <i class="fab fa-linkedin-in fa-lg"></i>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <p class="meet-team-person__header">{{ person.kalypso_name_meet_team_person }}</p>
+                            <p class="meet-team-person__position">{{ person.kalypso_position_meet_team_person }}</p>
+                            <p class="meet-team-person_desc">{{ person.kalypso_desc_meet_team_person }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </section>
+    {% endif %}
+    {# End Meet team section #}
+{% endblock %}
