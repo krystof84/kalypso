@@ -238,7 +238,7 @@ function cmb2_kalypso_metaboxes() {
             'add_button'    => __( 'Add Another Person', 'cmb2' ),
             'remove_button' => __( 'Remove Person', 'cmb2' ),
             'sortable'      => true,
-            // 'closed'     => true, // true to have the groups closed by default
+            'closed'     => true, 
         ),
     ) );
 

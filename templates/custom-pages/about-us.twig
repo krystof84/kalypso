@@ -1,12 +1,23 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
+    {# Header section #}
+    {% if( post.thumbnail ) %}
+        <section class="page-header">
+            <section class="page-header__container">
+
+                <img src="{{ post.thumbnail }}" class="page-header__image">
+                <div class="page-header__text-container">
+                    <h1 class="page-header__text">{{ post.title }}</h1>
+                </div>
+
+            </section>
+    </section>
+    {% endif %}
+    {# End Header section #}
+
     {# Maet team section #}
-
-{#    <pre>
-        {{ meetTeamPerson|print_r }}
-    </pre>#}
-
     {% if(meetTeamPerson) %}
         <section class="meet-team">
             <div class="meet-team-container">
