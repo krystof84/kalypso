@@ -21,3 +21,10 @@
     color: #ffffff;
   }
 }
+
+@media(max-width: 800px) {
+  .page-header {
+    height: 270px;
+
+  }
+}

@@ -17,7 +17,28 @@
     {% endif %}
     {# End Header section #}
 
-    {# Maet team section #}
+    {# Slider text section #}
+    {% if imagesSlider and headerSlider and descriptionSlider %}
+        <section class="st-section">
+            <div class="st-section__container">
+                <div class="st-section__slider" id="singlePage-slider">
+                    {% for imageId in imagesSlider|keys %}
+
+                        {{ function( 'wp_get_attachment_image', imageId, 'kalypso-single-page-slider-size' ) }}
+
+                    {% endfor %}
+                </div>
+                <div class="st-section__text">
+                    <p class="st-section__text-header">{{ headerSlider }}</p>
+                    <p class="st-section__text-desc">{{ descriptionSlider }}</p>
+                </div>
+
+            </div>
+        </section>
+    {% endif %}
+    {# End slider text section #}
+
+    {# Meet team section #}
     {% if(meetTeamPerson) %}
         <section class="meet-team">
             <div class="meet-team-container">

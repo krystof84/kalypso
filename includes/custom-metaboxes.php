@@ -218,6 +218,49 @@ function cmb2_kalypso_metaboxes() {
      * ABOUT US
      * */
 
+    // Slider Section
+
+    $cmb = new_cmb2_box( array(
+        'id'           => $prefix . 'slider_section',
+        'title'        => 'Slider Section',
+        'object_types' => array( 'page' ),
+        'show_on'      => array( 'key' => 'page-template', 'value' => 'about-us.php' ),
+        'context'      => 'normal', //  'normal', 'advanced', or 'side'
+        'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+        'show_names'   => true, // Show field names on the left
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Header', 'cmb2' ),
+        'id'         => $prefix . 'header_slider_section',
+        'type'       => 'text',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Description', 'cmb2' ),
+        'id'         => $prefix . 'description_slider_section',
+        'type'       => 'textarea',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
+
+    $cmb->add_field( array(
+        'name' => 'Slider images',
+        'desc' => '',
+        'id'   => $prefix . 'images_slider_section',
+        'type' => 'file_list',
+        'preview_size' => array( 160, 100 ),
+        'query_args' => array( 'type' => 'image' ),
+        'text' => array(
+            'add_upload_files_text' => __('Add or Upload Images', 'cmb2'),
+            'remove_image_text' => __('Remove image', 'cmb2'),
+            'file_text' => __('File', 'cmb2'),
+            'file_download_text' => __('Download', 'cmb2'),
+            'remove_text' => __('Remove image', 'cmb2'),
+        ),
+    ) );
+
+
     // Meet Team Section
 
     $cmb = new_cmb2_box( array(

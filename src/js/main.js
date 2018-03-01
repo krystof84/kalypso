@@ -53,6 +53,17 @@ jQuery(document).ready(function($) {
         speed: 500
     });
 
+    /*
+    * Single page slider
+    * */
+
+    $('#singlePage-slider').slick({
+        arrows: false,
+        dots: true,
+        infinite: true,
+        speed: 500
+    });
+
 
     /*
     * Carousel logotypes
