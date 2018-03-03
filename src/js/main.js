@@ -96,4 +96,33 @@ jQuery(document).ready(function($) {
             }
         }
     });
+
 });
+
+/*
+ * Google Map initialization
+ * */
+var map;
+function initMap() {
+
+    var divMap, placeLat, placeLang;
+
+    divMap = document.querySelector('.gmap');
+    placeLat = parseFloat(divMap.getAttribute('data-lat'));
+    placeLang = parseFloat(divMap.getAttribute('data-lng'));
+
+    map = new google.maps.Map(divMap, {
+        center: {lat: placeLat, lng: placeLang},
+        zoom: 16,
+        scrollwheel: false
+    });
+
+    new google.maps.Marker({
+        map: map,
+        position: {lat: placeLat, lng: placeLang}
+    });
+
+    google.maps.event.addDomListener(window, "resize", function () {
+        map.setCenter({lat: placeLat, lng: placeLang})
+    })
+}

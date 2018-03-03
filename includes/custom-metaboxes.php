@@ -330,5 +330,30 @@ function cmb2_kalypso_metaboxes() {
         'type' => 'text_url'
     ) );
 
+    /*
+     * Contact Page
+     * */
+
+    // Map Location
+
+    $cmb = new_cmb2_box( array(
+        'id'           => $prefix . 'map_section',
+        'title'        => 'Map location',
+        'object_types' => array( 'page' ),
+        'show_on'      => array( 'key' => 'page-template', 'value' => 'contact.php' ),
+        'context'      => 'normal',
+        'priority'     => 'high',
+        'show_names'   => true,
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Location', 'cmb2' ),
+        'desc' => __('Drag the marker to set the exact location'),
+        'id'         => $prefix . 'location',
+        'type'       => 'pw_map',
+//        'split_values' => true, // Save latitude and longitude as two separate fields
+    ) );
+
+
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );

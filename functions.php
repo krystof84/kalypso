@@ -19,7 +19,13 @@ Timber::$dirname = array('templates', 'views');
 
 
 // Define Google Maps API key
-define('GMAP_KEY', 'xxxxxx');
+define('GMAP_KEY', 'AIzaSyDIUPfOyKzeaPFaLixyctinvKsWNlsSseU');
+
+// Add google map api key to plugin cmb_field_map
+add_filter( 'cmb2_render_pw_map', function() {
+    wp_deregister_script( 'pw-google-maps-api' );
+    wp_register_script( 'pw-google-maps-api', '//maps.googleapis.com/maps/api/js?libraries=places&key='.GMAP_KEY, null, null );
+}, 12 );
 
 /**
  * Add common modules to the view context
