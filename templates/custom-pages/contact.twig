@@ -8,25 +8,32 @@
         </section>
     {% endif %}
 
-    <div class="content-wrapper">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+    <div class="contact--container">
+        <article class="post-type-{{post.post_type}} contact--main" id="post-{{post.ID}}">
             <section class="article-content">
-                <h1 class="article-h1">{{post.title}}</h1>
                 <div class="article-body">
                     {{post.content}}
                 </div>
             </section>
         </article>
+        <aside class="contact--sidebar">
+            {% if address %}
+                <p class="contact--sidebar-header">Adress</p>
+                <address>
+                    {{ address }}
+                </address>
+            {% endif %}
+
+            {% if phoneNumber or emailAddress %}
+                <p class="contact--sidebar-information">
+                    {% if phoneNumber %}Tel: <a href="tel:{{ phoneNumber }}">{{ phoneNumber }}</a><br/>{% endif %}
+                    {% if emailAddress %}Mail: <a href="mailto:{{ emailAddress }}">{{ emailAddress }}</a>{% endif %}
+                </p>
+            {% endif %}
+        </aside>
     </div><!-- /content-wrapper -->
 {% endblock %}
 
 {% block add_scripts %}
-
-    <script>
-
-    </script>
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ GMAP_KEY }}&callback=initMap"></script>
-
-
 {% endblock %}

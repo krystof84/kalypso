@@ -351,9 +351,28 @@ function cmb2_kalypso_metaboxes() {
         'desc' => __('Drag the marker to set the exact location'),
         'id'         => $prefix . 'location',
         'type'       => 'pw_map',
-//        'split_values' => true, // Save latitude and longitude as two separate fields
     ) );
 
+    $cmb->add_field( array(
+        'name'       => __( 'Address', 'cmb2' ),
+        'id'         => $prefix . 'address',
+        'type'       => 'textarea',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Phone number', 'cmb2' ),
+        'id'         => $prefix . 'phone_number',
+        'type'       => 'text',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Email address', 'cmb2' ),
+        'id'         => $prefix . 'email_address',
+        'type'       => 'text_email',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
 
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );

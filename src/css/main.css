@@ -185,6 +185,64 @@ input, textarea, select, button {
   height: 400px;
   display: block; }
 
+.contact--container {
+  width: 800px;
+  max-width: 100%;
+  margin: 50px auto;
+  display: flex; }
+  .contact--container .contact--sidebar-header {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #000; }
+  .contact--container address {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 22px; }
+  .contact--container .contact--sidebar-information {
+    font-size: 18px;
+    line-height: 22px; }
+    .contact--container .contact--sidebar-information a {
+      color: #c3512f; }
+
+.contact--main {
+  width: 60%; }
+
+.contact--sidebar {
+  width: 40%;
+  padding-left: 25px;
+  padding-right: 25px; }
+
+.wpcf7 form > p {
+  margin-bottom: 15px; }
+
+.wpcf7 form p label {
+  font-weight: 700; }
+
+.wpcf7 form p label input, .wpcf7 form p label textarea {
+  margin-top: 5px;
+  width: 100%; }
+
+@media (max-width: 800px) {
+  .contact--container {
+    padding-left: 20px;
+    padding-right: 20px; } }
+@media (max-width: 650px) {
+  .contact--container {
+    flex-direction: column-reverse;
+    padding: 0 25px;
+    margin: 30px auto; }
+    .contact--container address {
+      margin-bottom: 0; }
+
+  .contact--sidebar {
+    padding: 0; }
+
+  .contact--main {
+    margin-top: 40px; }
+
+  .contact--main, .contact--sidebar {
+    width: 100%; } }
 .picture-section {
   display: flex;
   align-items: center;
