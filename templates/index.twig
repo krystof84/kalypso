@@ -1,11 +1,47 @@
 {% extends "base.twig" %}
 
-{% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-	
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-{% endblock %}
+	{% block content %}
+
+        {# Header section #}
+        {% if( headerImage and headerBlog ) %}
+            <section class="page-header" >
+                <section class="page-header__container">
+
+                    <img src="{{ headerImage }}" class="page-header__image">
+                    <div class="page-header__text-container">
+                        <h1 class="page-header__text">{{ headerBlog }}</h1>
+                    </div>
+
+                </section>
+            </section>
+        {% endif %}
+        {# End Header section #}
+
+        {# Header section #}
+        {% if( post.thumbnail ) %}
+            <section class="page-header">
+                <section class="page-header__container">
+
+                    <img src="{{ post.thumbnail }}" class="page-header__image">
+                    <div class="page-header__text-container">
+                        <h1 class="page-header__text">{{ post.title }}</h1>
+                    </div>
+
+                </section>
+            </section>
+        {% endif %}
+        {# End Header section #}
+
+		<div class="content-container">
+			<div class="post-main category-main">
+				{% for post in posts %}
+					{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+				{% endfor %}
+
+				{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+			</div>
+			<div class="post-aside">
+				{{ sidebarWidget4 }}
+			</div>
+		</div>
+	{% endblock %}

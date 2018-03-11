@@ -15,6 +15,10 @@
 $context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 $context['foo'] = 'bar';
+
+$context['headerBlog'] = get_post_meta( get_option( 'page_for_posts' ), 'kalypso_header_blog_title', true );
+$context['headerImage'] = get_post_meta( get_option( 'page_for_posts' ), 'kalypso_image_blog_header', true );
+
 $templates = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'home.twig' );

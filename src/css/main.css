@@ -66,8 +66,6 @@ input, textarea, select, button {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-.header__logo {
-  padding-left: 15px; }
 
 .slider__slide {
   position: relative;
@@ -180,6 +178,96 @@ input, textarea, select, button {
     padding: 10px 30px; }
   .footer__up .footer__container {
     flex-direction: column; } }
+.content-container {
+  display: flex;
+  width: 1170px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.read-more {
+  display: block;
+  padding: 10px 0;
+  color: #ef0e0e;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color ease .3s;
+  background-color: #fff;
+  width: 124px;
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid #ef0e0e;
+  border-radius: 27px; }
+  .read-more:hover {
+    background-color: #ef0e0e;
+    color: #fff; }
+
+.post-main {
+  width: 70%;
+  margin-top: 25px; }
+  .post-main .tease-post--thumbnail {
+    width: 100%;
+    margin-bottom: 15px; }
+  .post-main .tease-post {
+    margin-bottom: 50px; }
+  .post-main .tease-post--header {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 10px; }
+    .post-main .tease-post--header a {
+      color: #000000; }
+
+.post-aside {
+  width: 30%;
+  padding-left: 30px;
+  margin-top: 25px; }
+
+.pagination-block {
+  margin-bottom: 25px; }
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap; }
+  .pagination li {
+    align-self: baseline;
+    margin-left: -1px;
+    margin-bottom: 17px; }
+    .pagination li a {
+      padding: 6px 12px;
+      border: 1px solid #ddd;
+      font-weight: bold;
+      color: #919191; }
+      .pagination li a.current {
+        background-color: #ef0e0e;
+        color: #fff; }
+    .pagination li.disabled a {
+      color: #ddd; }
+
+.sidebar__widget-title {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px; }
+.sidebar__widget ul li {
+  margin-bottom: 5px; }
+  .sidebar__widget ul li a {
+    color: #25282a; }
+
+@media (max-width: 1170px) {
+  .header__logo {
+    margin-left: 20px; }
+
+  .post-main {
+    padding-left: 20px; } }
+@media (max-width: 650px) {
+  .content-container {
+    flex-direction: column; }
+
+  .post-main, .post-aside {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px; } }
 .contact-map .gmap {
   width: 100%;
   height: 400px;

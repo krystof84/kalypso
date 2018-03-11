@@ -374,5 +374,37 @@ function cmb2_kalypso_metaboxes() {
         'show_on_cb' => 'cmb2_hide_if_no_cats',
     ) );
 
+    /*
+     * Blog Page
+     * */
+    $cmb = new_cmb2_box( array(
+        'id'           => $prefix . 'header_blog_section',
+        'title'        => 'Header blog section',
+        'object_types' => array( 'page' ),
+        'show_on'      => array( 'key' => 'id', 'value' => array( get_option( 'page_for_posts' ) ) ),
+        'context'      => 'normal',
+        'priority'     => 'high',
+        'show_names'   => true,
+    ) );
+
+    $cmb->add_field( array(
+        'name'       => __( 'Header text', 'cmb2' ),
+        'id'         => $prefix . 'header_blog_title',
+        'type'       => 'text'
+    ) );
+
+    $cmb->add_field( array(
+        'name' => 'Header image',
+        'desc' => 'Recomended image size: 1920 x 400px',
+        'id'   => $prefix . 'image_blog_header',
+        'type' => 'file',
+        'preview_size' => array( 400, 100 ),
+        'query_args' => array( 'type' => 'image' ),
+        'text' => array(
+            'add_upload_files_text' => 'Add or Upload image',
+            'remove_image_text' => 'Remove Image',
+        ),
+    ) );
+
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );
