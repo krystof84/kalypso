@@ -1,27 +1,30 @@
-<div class="comment-form">
-    <h3> add comment </h3>
-
+<div class="comment-form-container">
     <form id="form" class="comment-form" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
         {% if  user %}
             <input type="hidden" name="email" value="{{ user.email }}">
             <input type="hidden" name="author" value="{{ user.name }}">
             <input type="hidden" name="url" value="{{ user.link }}">
         {% else %}
-            <div>
-                <label for="email"> email </label>
-                <input required name="email" type="text" id="email"/>
+            <div class="form-not-logged-user">
+                <div>
+                    <label for="email"> email: </label>
+                    <input required name="email" type="text" id="email"/>
+                </div>
 
-                <label for="author"> username </label>
-                <input required name="author" type="text" id="author"/>
+                <div>
+                    <label for="author"> username: </label>
+                    <input required name="author" type="text" id="author"/>
+                </div>
 
-                <label for="url"> url </label>
-                <input name="url" id="url" type="text"/>
+                <div>
+                    <label for="url"> url: </label>
+                    <input name="url" id="url" type="text"/>
+                </div>
             </div>
         {% endif %}
 
         <div>
-            <label for="comment"> comment </label>
-            <textarea placeholder="comment text" name="comment" cols="60" rows="3" id="comment"></textarea>
+            <textarea name="comment" cols="60" rows="3" id="comment"></textarea>
         </div>
 
         <input name="comment_post_ID" value="{{ post.id }}" id="comment_post_ID" type="hidden">
@@ -29,8 +32,6 @@
 
         <div>
             <button type="submit" name="Submit" class="btn"> send </button>
-            <button type="reset"> cancel </button>
-            <p> Your comment will be revised by the site if needed. </p>
         </div>
     </form>
 </div>

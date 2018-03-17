@@ -97,6 +97,15 @@ jQuery(document).ready(function($) {
         }
     });
 
+    /* Hide Comment Box */
+
+    $('.comments .comment-box .comment-form-container').hide();
+    // $('.comment-box .comment-form-container').hide();
+    $('.reply').on('click', function() {
+        $(this).next().slideToggle();
+    })
+
+
 });
 
 /*

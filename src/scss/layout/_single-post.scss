@@ -1,0 +1,128 @@
+.post-type-post {
+  img { max-width: 100%;  }
+}
+
+.article-content {
+  padding-bottom: 30px;
+
+  .article-header {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  p, ul li, ol li {
+    font-weight: 300;
+    color:#000;
+    line-height: 25px;
+  }
+
+  li {
+    padding-left: 30px;
+
+    &:before {
+      display: inline-block;
+      width: 30px;
+      margin-left: -30px;
+      color: #000;
+      text-align: center;
+    }
+  }
+
+  ul li {
+
+    &:before {
+      content: '\002022';
+      position: relative;
+      top: -3px;
+      font-size: 160%;
+      line-height: 0;
+      vertical-align: middle;
+
+    }
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  a:not(.btn) {
+    color: #ed1c24;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.article-content *+h1, .article-content *+h2, .article-content *+h3, .article-content *+h4, .article-content *+p, .article-content *+iframe, .article-content *+ul, .article-content *+ol {
+  margin-top: 30px;
+}
+
+// Comments
+
+.comments {
+  .comments-title {
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
+  }
+
+  .blog-comment {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .comment-author {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .comment-content {
+      color: #000;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .reply {
+      color: #ef0e0e;
+      border: 1px solid #ef0e0e;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .comment-form-container {
+      padding-top: 15px;
+    }
+  }
+}
+
+.comment-form {
+  button {
+    margin-top: 10px;
+  }
+}
+
+.form-not-logged-user {
+  > div {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+}
+
+.comment-form {
+  textarea {
+    width: 100%;
+  }
+}
+
+.blog-comment > .comment-box > .comments {
+  padding-left: 50px;
+}
+
+.post-main > .comment-box {
+  padding-bottom: 40px;
+}

@@ -272,8 +272,17 @@ function kalypso_widgets_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => 'Sidebar',
+        'name'          => 'Sidebar Blog',
         'id'            => 'sidebar-widget-4',
+        'before_widget' => '<div class="sidebar__widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<p class="sidebar__widget-title">',
+        'after_title'   => '</p>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => 'Sidebar Single Post',
+        'id'            => 'sidebar-widget-5',
         'before_widget' => '<div class="sidebar__widget">',
         'after_widget'  => '</div>',
         'before_title'  => '<p class="sidebar__widget-title">',
@@ -291,6 +300,7 @@ function add_to_context( $context ) {
     $context['footerWidget2'] = Timber::get_widgets('kal-footer-widget-2');
     $context['footerWidget3'] = Timber::get_widgets('kal-footer-widget-3');
     $context['sidebarWidget4'] = Timber::get_widgets('sidebar-widget-4');
+    $context['sidebarWidgetSinglePost'] = Timber::get_widgets('sidebar-widget-5');
 
     return $context;
 }
