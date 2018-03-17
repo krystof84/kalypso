@@ -313,8 +313,8 @@ input, textarea, select, button {
   color: #000;
   margin-bottom: 5px; }
 .comments .blog-comment {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-top: 15px;
+  padding-bottom: 10px; }
   .comments .blog-comment .comment-author {
     color: #000;
     font-weight: 600; }
@@ -348,6 +348,12 @@ input, textarea, select, button {
 
 .post-main > .comment-box {
   padding-bottom: 40px; }
+
+.comment-box textarea {
+  padding: 10px; }
+
+.comment-box input {
+  padding-left: 5px; }
 
 .contact-map .gmap {
   width: 100%;

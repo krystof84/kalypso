@@ -100,11 +100,12 @@ jQuery(document).ready(function($) {
     /* Hide Comment Box */
 
     $('.comments .comment-box .comment-form-container').hide();
-    // $('.comment-box .comment-form-container').hide();
     $('.reply').on('click', function() {
-        $(this).next().slideToggle();
-    })
+        $(this).next().slideToggle(100);
+        $(this).next().find('textarea').focus();
+    });
 
+    $('.post-main > .comment-box > .comment-form-container').insertAfter($('.post-main > .comment-box > .comments > .comments-title'));
 
 });
 
