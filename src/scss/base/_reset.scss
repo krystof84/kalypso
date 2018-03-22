@@ -29,6 +29,61 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 
 table {
+  margin-top: 30px;
   border-collapse: collapse;
-  border-spacing: 0
+  border: 1px solid #dee2e6;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+
+  thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+
+  th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #dee2e6;
+    padding: .75rem;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 1px solid #dee2e6;
+    padding: .75rem;
+    vertical-align: top;
+    text-align: left;
+  }
+}
+
+dl{
+  letter-spacing:-0.31em;
+  *letter-spacing:normal;
+  word-spacing:-0.43em;
+}
+
+dl dt,
+dl dd {
+  display:inline-block;
+  *display:inline;
+  zoom:1;
+  letter-spacing:normal;
+  word-spacing:normal;
+  vertical-align:top;
+  margin:0;
+}
+
+dl dt{
+  font-weight:600;
+  width:48%;
+  padding: 0 2% 0.5em 0;
+}
+
+dl dd{
+  margin-right:-1px;
+  width:50%;
+  padding: 0 0 0.5em 0;
 }

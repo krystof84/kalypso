@@ -2,6 +2,15 @@
   img { max-width: 100%;  }
 }
 
+.post-main-single, .post-aside-single {
+  margin-top: 0;
+}
+
+.article-thumbnail {
+  margin-bottom: 10px;
+
+}
+
 .article-content {
   padding-bottom: 30px;
 
@@ -9,7 +18,12 @@
     font-size: 40px;
     font-weight: 700;
     color: #000;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+  }
+
+  .blog-author {
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 
   p, ul li, ol li {
@@ -50,13 +64,87 @@
   a:not(.btn) {
     color: #ed1c24;
   }
-}
+
+  ol {
+    counter-reset: ordered-list;
+
+    li:before {
+      counter-increment: ordered-list;
+      content: counter(ordered-list)".";
+    }
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: 900;
+  }
+
+  h1, h2 {
+    font-size: 38px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #000;
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px 1.5em 0;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D";
+  }
+  blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  blockquote p {
+    display: inline;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 0 15px 5px 0;
+  }
+
+  .alignright {
+    float: right;
+    margin: 0 0 5px 15px;
+  }
+
+  .aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  figcaption {
+    font-weight: 600;
+    color: #000;
+  }
+} // .article-content
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-.article-content *+h1, .article-content *+h2, .article-content *+h3, .article-content *+h4, .article-content *+p, .article-content *+iframe, .article-content *+ul, .article-content *+ol {
+.article-content *+h1, .article-content *+h2, .article-content *+h3, .article-content *+h4, .article-content *+h5, .article-content *+h6, .article-content *+p, .article-content *+iframe, .article-content *+ul, .article-content *+ol, .article-content *+dl, .article-content *+figure {
   margin-top: 30px;
 }
 
