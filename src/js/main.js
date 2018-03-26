@@ -1,6 +1,5 @@
 /*
 * Hamburger menu script
-*
 * */
 
 (function hamburgerMenuSlide() {
@@ -97,7 +96,9 @@ jQuery(document).ready(function($) {
         }
     });
 
-    /* Hide Comment Box */
+    /*
+    * Hide Comment Box
+    * */
 
     $('.comments .comment-box .comment-form-container').hide();
     $('.reply').on('click', function() {
@@ -106,6 +107,23 @@ jQuery(document).ready(function($) {
     });
 
     $('.post-main > .comment-box > .comment-form-container').insertAfter($('.post-main > .comment-box > .comments > .comments-title'));
+
+    /*
+     * Gallery Lightbox
+     * */
+
+    $('.gallery').each(function(index, gallery) {
+        $(gallery).find('.gallery-item a').attr('data-lightbox', 'gallery-' + index);
+    });
+
+    /*
+    * Single image with attachment
+    * */
+
+    $('a img[class*="wp-image-"]').each(function (index, image) {
+        var ahref = $(image).closest('a');
+        ahref.attr('data-lightbox', index);
+    });
 
 });
 

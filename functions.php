@@ -171,6 +171,9 @@ function kalypso_scripts() {
 
     // Owl Carousel script
     wp_enqueue_script( 'kalypso-owl-carousel', get_template_directory_uri() . '/src/js/owl.carousel.min.js', array( 'jquery' ), '1', true );
+
+    // Lightbox by Lokesh Dhakar
+    wp_enqueue_script( 'kalypso-lightbox', get_template_directory_uri() . '/src/js/lightbox.min.js', array( 'jquery' ), '1', true );
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
 
