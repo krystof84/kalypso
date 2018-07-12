@@ -158,7 +158,7 @@ function kalypso_scripts() {
     wp_enqueue_style( 'kalypso-fonts', kalypso_fonts_url(), array(), null );
 
     // Add main css file
-    wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.2' );
+    wp_enqueue_style( 'kalypso-style-main', get_template_directory_uri() . '/src/css/main.css', array(), '0.3' );
 
     // Font Awesome CDN
     wp_enqueue_style( 'kalypso-font-awesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), null );
@@ -174,6 +174,11 @@ function kalypso_scripts() {
 
     // Lightbox by Lokesh Dhakar
     wp_enqueue_script( 'kalypso-lightbox', get_template_directory_uri() . '/src/js/lightbox.min.js', array( 'jquery' ), '1', true );
+
+    // Live reload - only dev enviroment
+    if($_SERVER['SERVER_NAME'] == 'kalypso') {
+        wp_enqueue_script('livereload', 'http://kalypso:35729/livereload.js?snipver=1', null, false, true);
+    }
 }
 add_action( 'wp_enqueue_scripts', 'kalypso_scripts' );
 

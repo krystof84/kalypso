@@ -406,5 +406,29 @@ function cmb2_kalypso_metaboxes() {
         ),
     ) );
 
+    /*
+     * Category Page
+     * */
+    $cmb = new_cmb2_box( array(
+        'id'           => $prefix . 'header_category_section',
+        'title'        => 'Header category section',
+        'object_types' => array( 'term' ),
+        'taxonomies'   => array( 'category' )
+    ) );
+
+    $cmb->add_field( array(
+        'name' => 'Header image',
+        'desc' => 'Recomended image size: 1920 x 250px',
+        'id'   => $prefix . 'image_category_header',
+        'type' => 'file',
+        'preview_size' => array( 400, 100 ),
+        'query_args' => array( 'type' => 'image' ),
+        'text' => array(
+            'add_upload_files_text' => 'Add or Upload image',
+            'remove_image_text' => 'Remove Image',
+        ),
+    ) );
+
+
 }
 add_action( 'cmb2_admin_init', 'cmb2_kalypso_metaboxes' );

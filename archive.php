@@ -35,6 +35,10 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
+$category = get_category( get_query_var( 'cat' ) );
+$cat_id = $category->cat_ID;
+$context['categoryHeaderImage'] = get_term_meta( $cat_id, 'kalypso_image_category_header', true );
+
 $context['posts'] = new Timber\PostQuery();
 
 Timber::render( $templates, $context );

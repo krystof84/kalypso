@@ -2,12 +2,32 @@
 
 	{% block content %}
 
-        {# Header section #}
+
+        {# Header section - Category page #}
+        {% if title %}
+            <section class="page-header">
+                <section class="page-header__container">
+
+                    {% if categoryHeaderImage %}
+                        <img src="{{categoryHeaderImage}}" class="page-header__image" alt="{{title}}">
+                    {% else %}
+                        <img src="{{function('get_template_directory_uri')}}/src/img/demo/cat-header-image-1.jpg" class="page-header__image" alt="{{title}}">
+                    {% endif %}    
+
+                    <div class="page-header__text-container">
+                        <h1 class="page-header__text">{{ title }}</h1>
+                    </div>
+
+                </section>
+            </section>
+        {% endif %}
+
+        {# Header section - Blog page #}
         {% if( headerImage and headerBlog ) %}
             <section class="page-header" >
                 <section class="page-header__container">
 
-                    <img src="{{ headerImage }}" class="page-header__image">
+                    <img src="{{ headerImage }}" class="page-header__image" alt="headerBlog">
                     <div class="page-header__text-container">
                         <h1 class="page-header__text">{{ headerBlog }}</h1>
                     </div>
