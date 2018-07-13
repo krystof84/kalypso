@@ -1,4 +1,8 @@
 .slider {
+  > div:not(:first-child) {
+    display: none;
+  }
+
   &__slide {
     position: relative;
     display: flex !important;

@@ -7,63 +7,65 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header" >
-			{% block header %}
-				<div class="header__container">
-					<h1 class="header__logo" role="banner">
-						{% if( function('has_custom_logo') ) %}
-							{{ function('the_custom_logo') }}
-						{% else %}
-							<a class="header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-						{% endif %}
-					</h1>
-
-					<div class="menu-slide__button" id="menuSlideButton">
-						<div class="top"></div>
-						<div class="middle"></div>
-						<div class="bottom"></div>
-					</div>
-
-					<div class="menu-slide__box-container">
-						<div class="menu-slide__box" id="menuSlideBox">
-
-							{% if( function('get_theme_mod', 'kalypso_logo_in_slide_menu') ) %}
-								<div class="menu-slide__signet">
-									<img src="{{ function('get_theme_mod', 'kalypso_logo_in_slide_menu') }}" alt="">
-								</div>
+		<div class="wrapper">
+			<header class="header" >
+				{% block header %}
+					<div class="header__container">
+						<h1 class="header__logo" role="banner">
+							{% if( function('has_custom_logo') ) %}
+								{{ function('the_custom_logo') }}
+							{% else %}
+								<a class="header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
 							{% endif %}
+						</h1>
 
-							<nav class="menu-slide__navigation" role="navigation">
-								{% include "menu-slide.twig" with {'menu': menu['primary'].get_items} %}
-							</nav>
-
-							<button type="button" class="menu-slide__btn-close">
-								<span class="sr-only">Zamknij</span>
-							</button>
+						<div class="menu-slide__button" id="menuSlideButton">
+							<div class="top"></div>
+							<div class="middle"></div>
+							<div class="bottom"></div>
 						</div>
+
+						<div class="menu-slide__box-container">
+							<div class="menu-slide__box" id="menuSlideBox">
+
+								{% if( function('get_theme_mod', 'kalypso_logo_in_slide_menu') ) %}
+									<div class="menu-slide__signet">
+										<img src="{{ function('get_theme_mod', 'kalypso_logo_in_slide_menu') }}" alt="">
+									</div>
+								{% endif %}
+
+								<nav class="menu-slide__navigation" role="navigation">
+									{% include "menu-slide.twig" with {'menu': menu['primary'].get_items} %}
+								</nav>
+
+								<button type="button" class="menu-slide__btn-close">
+									<span class="sr-only">Zamknij</span>
+								</button>
+							</div>
+						</div>
+
+
 					</div>
-
-
-				</div>
-			{% endblock %}
-		</header>
-
-		<section id="content" role="main" class="content-wrapper {{sidebar_class}}">
-
-				{% block content %}
-					Sorry, no content
 				{% endblock %}
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
+			</header>
 
-		</section>
+			<section id="content" role="main" class="content-wrapper {{sidebar_class}}">
 
-		{% include 'footer.twig' %}
-		{{ function('wp_footer') }}
+					{% block content %}
+						Sorry, no content
+					{% endblock %}
+				{% if sidebar %}
+					<aside class="layout-sidebar">
+						{{sidebar}}
+					</aside>
+				{% endif %}
 
-		{% block add_scripts %}{% endblock %}
+			</section>
+
+			{% include 'footer.twig' %}
+			{{ function('wp_footer') }}
+
+			{% block add_scripts %}{% endblock %}
+		</div>
 	</body>
 </html>

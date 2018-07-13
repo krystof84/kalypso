@@ -6,10 +6,12 @@
 
     const sidebarBox = document.querySelector('#menuSlideBox'),
         sideBarContainer = document.querySelector('.menu-slide__box-container'),
-        sidebarBtn = document.querySelector('#menuSlideButton');
+        sidebarBtn = document.querySelector('#menuSlideButton'),
+        body = document.querySelector('body');
 
     sidebarBtn.addEventListener('click', function(e) {
         e.stopPropagation();
+        body.classList.toggle('no-scroll');
         sideBarContainer.classList.toggle('active');
         sidebarBtn.classList.toggle('active');
         sidebarBox.classList.toggle('active');
@@ -20,6 +22,7 @@
 
         if( !sidebarBox.contains(e.target) || e.target.className == 'menu-slide__btn-close' ) {
             if (sidebarBox.classList.contains('active')) {
+                body.classList.remove('no-scroll');
                 sideBarContainer.classList.remove('active');
                 sidebarBtn.classList.remove('active');
                 sidebarBox.classList.remove('active');
@@ -30,6 +33,7 @@
     // Close sliding menu on esc button
     window.addEventListener('keydown', function(e) {
         if (sidebarBox.classList.contains('active') && e.keyCode === 27) {
+            body.classList.remove('no-scroll');
             sideBarContainer.classList.remove('active');
             sidebarBtn.classList.remove('active');
             sidebarBox.classList.remove('active');
