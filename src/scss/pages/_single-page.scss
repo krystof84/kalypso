@@ -28,3 +28,17 @@
 
   }
 }
+
+.page {
+  img.size-full {
+    width: 100%;
+  }
+}
+@media(max-width: 1200px) {
+  .page {
+    .article-content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
