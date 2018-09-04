@@ -136,3 +136,9 @@
     align-self: center;
   }
 }
+
+@media(max-width: 500px) {
+  .menu-slide__box {
+    width: 100%;
+  }
+}
